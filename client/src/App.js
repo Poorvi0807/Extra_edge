@@ -9,7 +9,6 @@ import { MdDelete } from "react-icons/md";
 import { IoHeartSharp } from "react-icons/io5";
 import { IoHeartOutline } from "react-icons/io5";
 import './App.css'
-// import imgss from './images_data/person1.png';
 
 const App = () => {
   const users = useSelector((state) => state.users);
@@ -40,7 +39,6 @@ const App = () => {
   return (
     <div style={{ padding: "20px" }}>
       <h1>User Dashboard</h1>
-      <img src="./public/images/person1.png" alt="no image"/>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {users.map((user) => (
           <div
@@ -52,17 +50,23 @@ const App = () => {
               width: "200px",
             }}
           >
-          <img
-              // src="https://drive.google.com/file/d/1UNX-WuHF7-ch9Y0sWpWTkcFN7XEA-QQo/view?usp=drivesdk"
-              src={user.image}
-              alt={user.name}
-              style={{
-                width: "100px",
-                height: "100px",
-                marginBottom: "10px",
-                margin:"auto"
-              }}
-            />
+          <div
+            style={{
+                  width: "100px",
+                  height: "100px",
+                  margin:"auto",
+                  marginBottom: "10px"
+                }}
+          >
+            <img
+                src={user.image}
+                alt={user.name}
+                style={{
+                  width: "100px",
+                  height: "100px"
+                }}
+              />
+          </div>
             {isEditing === user.id ? (
               <div>
                 <input
@@ -102,9 +106,9 @@ const App = () => {
             ) : (
               <div>
                 <h3>{user.name}</h3>
-                <p><MdOutlineMailOutline />{user.email}</p>
-                <p><FaPhoneFlip />{user.phone}</p>
-                <p><TbWorld />{user.website}</p>
+                <p ><span style={{ margin:"0",paddingBottom:"0px", background:"Pink"}}><MdOutlineMailOutline /></span><span>{user.email}</span></p>
+                <p><span><FaPhoneFlip /></span><span>{user.phone}</span></p>
+                <p><span><TbWorld /></span><span>{user.website}</span></p>
                 <button
                   style={{
                     width: '33%',
